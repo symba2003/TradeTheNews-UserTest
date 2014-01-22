@@ -1,0 +1,12 @@
+D:\Katrine\Work\Тестовое задание\TradeTheNews\C#\UserTest\CollectionsTest\bin\Debug\CollectionsTest.exe.config
+D:\Katrine\Work\Тестовое задание\TradeTheNews\C#\UserTest\CollectionsTest\bin\Debug\CollectionsTest.exe
+D:\Katrine\Work\Тестовое задание\TradeTheNews\C#\UserTest\CollectionsTest\bin\Debug\CollectionsTest.pdb
+D:\Katrine\Work\Тестовое задание\TradeTheNews\C#\UserTest\CollectionsTest\obj\Debug\CollectionsTest.csprojResolveAssemblyReference.cache
+D:\Katrine\Work\Тестовое задание\TradeTheNews\C#\UserTest\CollectionsTest\obj\Debug\CollectionsTest.exe
+D:\Katrine\Work\Тестовое задание\TradeTheNews\C#\UserTest\CollectionsTest\obj\Debug\CollectionsTest.pdb
+H:\Desktop\Temp\Test\UserTest\CollectionsTest\bin\Debug\CollectionsTest.exe.config
+H:\Desktop\Temp\Test\UserTest\CollectionsTest\bin\Debug\CollectionsTest.exe
+H:\Desktop\Temp\Test\UserTest\CollectionsTest\bin\Debug\CollectionsTest.pdb
+H:\Desktop\Temp\Test\UserTest\CollectionsTest\obj\Debug\CollectionsTest.csprojResolveAssemblyReference.cache
+H:\Desktop\Temp\Test\UserTest\CollectionsTest\obj\Debug\CollectionsTest.exe
+H:\Desktop\Temp\Test\UserTest\CollectionsTest\obj\Debug\CollectionsTest.pdb

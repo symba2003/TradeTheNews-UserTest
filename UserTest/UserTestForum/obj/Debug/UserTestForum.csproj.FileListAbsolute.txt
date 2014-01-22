@@ -1,0 +1,18 @@
+H:\Desktop\Temp\Test\UserTestForum\bin\Debug\UserTestForum.exe.config
+H:\Desktop\Temp\Test\UserTestForum\bin\Debug\UserTestForum.exe
+H:\Desktop\Temp\Test\UserTestForum\bin\Debug\UserTestForum.pdb
+H:\Desktop\Temp\Test\UserTestForum\obj\Debug\UserTestForum.csprojResolveAssemblyReference.cache
+H:\Desktop\Temp\Test\UserTestForum\obj\Debug\UserTestForum.exe
+H:\Desktop\Temp\Test\UserTestForum\obj\Debug\UserTestForum.pdb
+D:\Katrine\Work\Тестовое задание\TradeTheNews\C#\UserTest\UserTestForum\bin\Debug\UserTestForum.exe.config
+D:\Katrine\Work\Тестовое задание\TradeTheNews\C#\UserTest\UserTestForum\obj\Debug\UserTestForum.exe
+D:\Katrine\Work\Тестовое задание\TradeTheNews\C#\UserTest\UserTestForum\obj\Debug\UserTestForum.pdb
+D:\Katrine\Work\Тестовое задание\TradeTheNews\C#\UserTest\UserTestForum\bin\Debug\UserTestForum.exe
+D:\Katrine\Work\Тестовое задание\TradeTheNews\C#\UserTest\UserTestForum\bin\Debug\UserTestForum.pdb
+D:\Katrine\Work\Тестовое задание\TradeTheNews\C#\UserTest\UserTestForum\obj\Debug\UserTestForum.csprojResolveAssemblyReference.cache
+H:\Desktop\Temp\Test\UserTest\UserTestForum\bin\Debug\UserTestForum.exe.config
+H:\Desktop\Temp\Test\UserTest\UserTestForum\bin\Debug\UserTestForum.exe
+H:\Desktop\Temp\Test\UserTest\UserTestForum\bin\Debug\UserTestForum.pdb
+H:\Desktop\Temp\Test\UserTest\UserTestForum\obj\Debug\UserTestForum.csprojResolveAssemblyReference.cache
+H:\Desktop\Temp\Test\UserTest\UserTestForum\obj\Debug\UserTestForum.exe
+H:\Desktop\Temp\Test\UserTest\UserTestForum\obj\Debug\UserTestForum.pdb

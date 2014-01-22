@@ -1,0 +1,22 @@
+D:\Katrine\Work\Тестовое задание\1\C#\UserTest\UserTest\obj\x86\Debug\UserTest.csprojResolveAssemblyReference.cache
+D:\Katrine\Work\Тестовое задание\1\C#\UserTest\UserTest\bin\Debug\UserTest.exe
+D:\Katrine\Work\Тестовое задание\1\C#\UserTest\UserTest\bin\Debug\UserTest.pdb
+D:\Katrine\Work\Тестовое задание\1\C#\UserTest\UserTest\obj\x86\Debug\UserTest.exe
+D:\Katrine\Work\Тестовое задание\1\C#\UserTest\UserTest\obj\x86\Debug\UserTest.pdb
+H:\Desktop\Temp\Test\UserTest\obj\x86\Debug\UserTest.exe
+H:\Desktop\Temp\Test\UserTest\obj\x86\Debug\UserTest.pdb
+H:\Desktop\Temp\Test\UserTest\bin\Debug\UserTest.exe
+H:\Desktop\Temp\Test\UserTest\bin\Debug\UserTest.pdb
+H:\Desktop\Temp\Test\UserTest\obj\x86\Debug\UserTest.csprojResolveAssemblyReference.cache
+D:\Katrine\Work\Тестовое задание\TradeTheNews\C#\UserTest\UserTest\bin\Debug\UserTest.exe
+D:\Katrine\Work\Тестовое задание\TradeTheNews\C#\UserTest\UserTest\bin\Debug\UserTest.pdb
+D:\Katrine\Work\Тестовое задание\TradeTheNews\C#\UserTest\UserTest\obj\x86\Debug\UserTest.csprojResolveAssemblyReference.cache
+D:\Katrine\Work\Тестовое задание\TradeTheNews\C#\UserTest\UserTest\obj\x86\Debug\UserTest.exe
+D:\Katrine\Work\Тестовое задание\TradeTheNews\C#\UserTest\UserTest\obj\x86\Debug\UserTest.pdb
+D:\Katrine\Work\Тестовое задание\TradeTheNews\C#\UserTest\UserTest\bin\Debug\UserTest.exe.config
+H:\Desktop\Temp\Test\UserTest\UserTest\bin\Debug\UserTest.exe.config
+H:\Desktop\Temp\Test\UserTest\UserTest\obj\x86\Debug\UserTest.exe
+H:\Desktop\Temp\Test\UserTest\UserTest\obj\x86\Debug\UserTest.pdb
+H:\Desktop\Temp\Test\UserTest\UserTest\bin\Debug\UserTest.exe
+H:\Desktop\Temp\Test\UserTest\UserTest\bin\Debug\UserTest.pdb
+H:\Desktop\Temp\Test\UserTest\UserTest\obj\x86\Debug\UserTest.csprojResolveAssemblyReference.cache

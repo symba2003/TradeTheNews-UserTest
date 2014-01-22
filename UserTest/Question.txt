@@ -1,0 +1,28 @@
+Hello!
+
+I did not understand why does ConcurentDictionary<int, SomeClass> is sorted? 
+Simple test:
+
+
+
+For sorted collections there are special types in .Net (i.e SortedSet, SortedDictionary)
+And, as per MSDN, ConcurentDictionary is an unordered data structure. But when I test my code, it's really sorted. 
+And it is interesting for me - to know, what causes such behaviour?
+
+Could anyone, please, explain?
+Thanks for you help!
+
+
+
+
+
+I need a thread-safe collection of Users. 
+I have a ConcurentDictionary<int, User> and  in my UserRepositoryClass.
+But when I am testing 
+
+
+I need a thread-safe collection of users (UserRepository). All users must be kept in memory. And memory consumption is not a concern.
+For implementation I decided to use ConcurentDictionary<int, User>.
+
+UserRepository contains 2 methods: GetUser and GetOrderedUsers. Read operations (GetUser and GetOrderedUsers) will be called very often from many threads simultaneously.
+(write operations also will be called from several threads, but )
