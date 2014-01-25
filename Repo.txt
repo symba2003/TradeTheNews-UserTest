@@ -1,0 +1,165 @@
+TODO: создать итоговый класс - с коментариями и без копий объектов 
+
+Костя:
+    // TODO: если по условию задачи UserKey является Int, и для int хэш-функция возвращает этот же int,
+        // то стоит ли "заморачиваться" с хранением обеих коллекций? ConcurrentDictionary & SortedSet?а что станет когда юзеров будет больше, чем Int? (не представляю себе такого сервиса, но все же ))
+если нужен будет long?
+это доп вопрос задаче-дателю (в коментариях к заданию, сделала так и так, потому что считаю, что так и так, в другой ситуации - по другому.)
+
+       //TODO: это норм, что Return в Lock'e?
+все ок
+lock {} - это почти try { Monitor.Enter(); } finally { Monitor.Exit(); }
+
+            // TODO: does the lock needed? (for creating shallow copy of concurentUsers[user_id])
+            //no lock concurentUsers[user_id], since it's ConcurentCollection
+не знаю, как устроен ConcurrentDictionary в C#, если он не бросит ConcurrentModificationException - то все ок.
+скорее всего он вернет итератор валидный на определенный момент времени.
+соответственно, в PrintRepository - то же самое.
+
+
+
+а зачем ты добавляешь и возвращаешь все время копии юзеров, это не overkill?
+[13:17:17] Екатерина Ряховская: аа..про копии мы с тобой отдельно обсуждали, понмишь? что если изменить объект в к-л потоке, то изменится и репозиторий...и вроде как это не есть гуд
+[13:17:29] Костя Ряховский (актуальн): да, я помню...
+[13:19:00] Екатерина Ряховская: в общем-то для той конкретной задачи - возвращать копии userов - Не является необходимостью?
+[13:19:56] Костя Ряховский (актуальн): ну да, это тоже обсуждали. 
+мы тогда решили , что зависит от задачи 
+все ок
+ну только в коментариях к задаче ты опишешь, что ты делаешь так, потому что ....
+[13:20:04] Костя Ряховский (актуальн): и как это скажется на производительности
+[13:20:52] Екатерина Ряховская: насчет производительности - имеются в виду примерные оценки? или результаты конкретных тестов
+[13:21:11] Екатерина Ряховская: (тест длился два часа - и это только одно из 4 заданий)
+[13:21:32] Костя Ряховский (актуальн): зависит от того, что от тебя требуется )
+в той конкретной ситуации - достаточно примерной оценки, имхо
+
+а микробенчмарки - это отдельная наука
+[13:22:38] Костя Ряховский (актуальн): я имел ввиду, отметить, что ты понимаешь, что в lock делаются копии и это не гуд для производительности когда много потоков пытаются получить доступ к критическому участку
+[13:22:49] Костя Ряховский (актуальн): чтоб они понимали, что ты понимаешь..
+[13:23:18] Екатерина Ряховская: Костя, я не совсем понимаю - что в той примерной оценке должно быть: я не знаю примерного кол-ва обращений к каждой из функций..знаю только, что к GetOrderdUsers & GetUser - обращаются "очень часто" и "It is important that the GetUser and GetOrderedUsers will execute as quickly as possible."
+[13:23:42] Екатерина Ряховская: аа..
+ понятно!
+[13:24:09] Екатерина Ряховская: Костя, спасибо тебе за помощь!  теперь приступлю (вечером пострааюсь) к рассмотрению след задачи
+
+
+о еще вопрос:   // TODO: does the lock needed? (for creating shallow copy of concurentUsers[user_id])
+            //no lock concurentUsers[user_id], since it's ConcurentCollection
+не знаю, как устроен ConcurrentDictionary в C#, если он не бросит ConcurrentModificationException - то все ок.
+
+А как это можно проверить? Воспроизвести сложно такую ситуацию
+[13:30:00] Костя Ряховский (актуальн): почему сложно?
+можно даже в одном потоке.
+
+iterator.next();
+dictionary.add(...);
+iterator.next();
+[13:32:29] Екатерина Ряховская: а пчм iterator? ConcurentDictionary (который в C#) - и есть Thread-safe...соответственно операция concurentUsers[user_id] - thread-safe..а вот вызов ShallowCopy() - уже не thread-safe (это метод объекта User)..
+[13:33:05] Екатерина Ряховская: но с др стороны ShallowCopy - не меняет текуцщий объект User..а лишь "читает" его и создает копию
+[13:33:15] Костя Ряховский (актуальн): [13:32] Екатерина Ряховская: 
+
+<<< соответственно операция concurentUsers[user_id] - thread-safe.вот я про это говорил, я не знаю, насколько это thread-safe
+[13:33:33] Екатерина Ряховская: аа..ок..да, в C# - это Thread-safe
+[13:33:56] Костя Ряховский (актуальн): [13:33] Екатерина Ряховская: 
+
+<<< но с др стороны ShallowCopy - не меняет текуцщий объект User..а лишь "читает" его и создает копиюну да, т.е. в худшем случае можно получить неконсистентный объект (наполовину записанный)
+но у тебя хранится копия - так что все ок
+[13:34:20] Костя Ряховский (актуальн): вообще, для этих целей User надо делать immutable )
+[13:35:04] Екатерина Ряховская: ок..задача не стояла в изменении User..и это можно было добавить в комментариях...
+[13:35:13] Костя Ряховский (актуальн): ага
+[13:36:40] Екатерина Ряховская: [13:34] Костя Ряховский (актуальн): 
+
+<<< immutable- это значит, что объекты должны быть "неизменяемы"...то есть read-only, верно?
+[13:36:58] Костя Ряховский (актуальн): да
+
+
+/// <summary>
+    /// Класс-результат, содержащий копии оригинальных объектов User и возвращающий копии User
+    /// </summary>
+    class UserRepositoryWithCopiesOfObjects
+    {
+        // Since requirements state that: 
+        // It is important that the GetUser and GetOrderedUsers will execute as quickly as possible.
+        // Memory consumption is not a concern.
+
+        // Will store 2 collections: optimized for concurent access and sorted
+        // TODO: если по условию задачи UserKey является Int, и для int хэш-функция возвращает этот же int,
+        // то стоит ли "заморачиваться" с хранением обеих коллекций? ConcurrentDictionary & SortedSet?
+        // ведь ConcurrentDictionary оказывается сортированным?
+        private ConcurrentDictionary<int, User> concurentUsers = new ConcurrentDictionary<int, User>();
+
+        private SortedDictionary<int, User> sortedUsers = new SortedDictionary<int, User>();
+
+        private Object synchronizer = new object();
+
+        #region Methods
+        public void AddUser(User user)
+        {
+            // Write operation (AddUser) will be called much less often, but also can be called from several threads at the same time.
+            lock (synchronizer)
+            {
+                // операция дб атомарна: добавление пользователя в обе коллекции
+                if (!sortedUsers.ContainsKey(user.UserID))
+                {
+                    // сначала проверяем наличие пользователя в коллекции, 
+                    // и только если пользователь еще не добавлен в коллекцию,
+                    // только после этого создаем копию этого пользователя
+
+                    // create a copy of the user
+                    User u = new User(user.UserID, user.FamilyName, user.GivenName);
+
+                    concurentUsers.TryAdd(user.UserID, user);
+                    sortedUsers.Add(user.UserID, user);
+                }
+            }
+        }
+
+        /// <summary>
+        /// returns arrays of users ordered by UserID.
+        /// </summary>
+        /// <returns></returns>
+        public User[] GetOrderedUsers()
+        {
+            
+            lock (synchronizer)
+            {
+                User[] users = new User[sortedUsers.Count];
+               
+               
+                //INFO: The returned SortedDictionary<TKey, TValue>.ValueCollection is not a static copy; instead, the 
+                // SortedDictionary<TKey, TValue>.ValueCollection refers back to the values in the original SortedDictionary<TKey, TValue>.
+                // Therefore, changes to the SortedDictionary<TKey, TValue> continue to be reflected in the 
+                // SortedDictionary<TKey, TValue>.ValueCollection.  Getting the value of this property is an O(1) operation.
+
+                // здесь возвращаются те же самые объекты User (Некопии)
+                //sortedUsers.Values.CopyTo(users, 0);
+                //users = sortedUsers.Values.ToArray();
+
+		// А здесь добавляем в массив копии объектов
+                int i = 0;
+                foreach (User u in sortedUsers.Values) 
+                {
+                    users[i] = u.ShallowCopy();
+                    i++;
+                }
+
+                //TODO: это норм, что Return в Lock'e?
+                return users;
+            }
+        }
+
+        public User GetUser(int user_id)
+        {
+            // TODO: does the lock needed? (for creating shallow copy of concurentUsers[user_id])
+            //no lock concurentUsers[user_id], since it's ConcurentCollection
+            return concurentUsers[user_id].ShallowCopy();
+        }
+
+        #endregion Methods
+
+        public void PrintRepository()
+        {
+            foreach (KeyValuePair<int, User> pair in concurentUsers)
+            {
+                Console.WriteLine(pair.Value.ToString());
+            }
+        }
+    }
