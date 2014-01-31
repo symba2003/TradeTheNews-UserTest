@@ -1,0 +1,4 @@
+H:\Desktop\Temp\Test\UserTest\ReaderWriterLockSample\bin\Debug\ReaderWriterLockSample.exe
+H:\Desktop\Temp\Test\UserTest\ReaderWriterLockSample\bin\Debug\ReaderWriterLockSample.pdb
+H:\Desktop\Temp\Test\UserTest\ReaderWriterLockSample\obj\Debug\ReaderWriterLockSample.exe
+H:\Desktop\Temp\Test\UserTest\ReaderWriterLockSample\obj\Debug\ReaderWriterLockSample.pdb
