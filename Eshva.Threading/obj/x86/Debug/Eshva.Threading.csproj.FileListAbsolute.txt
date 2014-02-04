@@ -3,3 +3,8 @@ H:\Desktop\Temp\Test\UserTest\Eshva.Threading\bin\Debug\Eshva.Threading.exe
 H:\Desktop\Temp\Test\UserTest\Eshva.Threading\bin\Debug\Eshva.Threading.pdb
 H:\Desktop\Temp\Test\UserTest\Eshva.Threading\obj\x86\Debug\Eshva.Threading.exe
 H:\Desktop\Temp\Test\UserTest\Eshva.Threading\obj\x86\Debug\Eshva.Threading.pdb
+D:\Katrine\Work\Тестовое задание\TradeTheNews\C#\TradeTheNews-UserTest\Eshva.Threading\obj\x86\Debug\Eshva.Threading.exe
+D:\Katrine\Work\Тестовое задание\TradeTheNews\C#\TradeTheNews-UserTest\Eshva.Threading\obj\x86\Debug\Eshva.Threading.pdb
+D:\Katrine\Work\Тестовое задание\TradeTheNews\C#\TradeTheNews-UserTest\Eshva.Threading\bin\Debug\Eshva.Threading.exe
+D:\Katrine\Work\Тестовое задание\TradeTheNews\C#\TradeTheNews-UserTest\Eshva.Threading\bin\Debug\Eshva.Threading.pdb
+D:\Katrine\Work\Тестовое задание\TradeTheNews\C#\TradeTheNews-UserTest\Eshva.Threading\obj\x86\Debug\Eshva.Threading.csprojResolveAssemblyReference.cache

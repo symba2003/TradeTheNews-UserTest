@@ -401,7 +401,7 @@ namespace Eshva.Threading.Framework
                         aEntry => aEntry.TaskPriority == TaskPriority.Normal) &&
                         (mQueuedTasks.All(
                             aEntry => aEntry.TaskPriority != TaskPriority.High) ||
-                         Interlocked.CompareExchange(ref mQueuedHighPriorityTaskCounter, 0, 0) >=
+                         Interlocked.CompareExchange(ref mQueuedHighPriorityTaskCounter, 0, 0) >= //COMMENT: судя по описанию метода CompareExchange - совпадение 2 и 3 аргументов - не имеет смысла (если mQueuedHighPriorityTaskCounter = 3аргумент, то mQueuedHighPriorityTaskCounter присваивается значение второго аргумента
                          HighPriorityTaskFactor))
                     {
                         // В списке задач на выполнение есть задачи с обычным приоритетом и

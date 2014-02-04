@@ -350,7 +350,13 @@ namespace Eshva.Threading.Framework
                             aEntry => aEntry.TaskPriority != TaskPriority.High) ||
                          Interlocked.CompareExchange(ref mQueuedHighPriorityTaskCounter, 0, 0) >=
                          HighPriorityTaskFactor))
-                    {
+                    { // katrine: CHECK mQueuedHighPriorityTaskCounter vakues (0, 1, 2, 3, 4)..кажется, никогда не сбрасывается в 0:
+                        // katrine:НЕТ, сбрасывается...в TaskThreadLogic (): Interlocked.Add( ref mQueuedHighPriorityTaskCounter, -HighPriorityTaskFactor);
+                        //katrine:Debug.Assert(mQueuedHighPriorityTaskCounter > -1, "counter= " + mQueuedHighPriorityTaskCounter); 
+                        // katrine:- INFO: после того, как остановим FixedThreadPool.stop() - будут выполняться задачи со статусом Normal 
+                        // katrine: (Low не выполняются пока есть задачи с более высоким приоритетом). В таком случае, будут выполняться много раз подряд задачи со статусом Normal,
+                        // katrine: и после каждого выполнения mQueuedHighPriorityTaskCounterбудет уменьшаться на 3: получим -3,-6, -9..и т.д,пока не кончатся задачи Normal
+                      
                         // В списке задач на выполнение есть задачи с обычным приоритетом и
                         // выполнено достаточное количество задач с высоким приоритетом или
                         // в очереди задач все задачи имеют приоритет ниже высокого.

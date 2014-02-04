@@ -3,3 +3,5 @@ H:\Desktop\Temp\Test\UserTest\ReaderWriterLockSample\bin\Debug\ReaderWriterLockS
 H:\Desktop\Temp\Test\UserTest\ReaderWriterLockSample\obj\Debug\ReaderWriterLockSample.exe
 H:\Desktop\Temp\Test\UserTest\ReaderWriterLockSample\obj\Debug\ReaderWriterLockSample.pdb
 H:\Desktop\Temp\Test\UserTest\ReaderWriterLockSample\obj\Debug\ReaderWriterLockSample.csprojResolveAssemblyReference.cache
+D:\Katrine\Work\Тестовое задание\TradeTheNews\C#\TradeTheNews-UserTest\ReaderWriterLockSample\obj\Debug\ReaderWriterLockSample.exe
+D:\Katrine\Work\Тестовое задание\TradeTheNews\C#\TradeTheNews-UserTest\ReaderWriterLockSample\obj\Debug\ReaderWriterLockSample.pdb
