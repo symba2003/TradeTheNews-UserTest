@@ -1,0 +1,5 @@
+H:\Desktop\Temp\Test\UserTest\Eshva.Threading\obj\x86\Debug\Eshva.Threading.csprojResolveAssemblyReference.cache
+H:\Desktop\Temp\Test\UserTest\Eshva.Threading\bin\Debug\Eshva.Threading.exe
+H:\Desktop\Temp\Test\UserTest\Eshva.Threading\bin\Debug\Eshva.Threading.pdb
+H:\Desktop\Temp\Test\UserTest\Eshva.Threading\obj\x86\Debug\Eshva.Threading.exe
+H:\Desktop\Temp\Test\UserTest\Eshva.Threading\obj\x86\Debug\Eshva.Threading.pdb

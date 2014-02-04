@@ -9,7 +9,7 @@ namespace UserTest
     /// <summary>
     /// Класс, содержащий копии оригинальных объектов User и возвращающий копии User
     /// </summary>
-    /// <remarks> Совместно с Костей решили - что это уже ovwerkill для текущей задачи</remarks>
+    /// <remarks> Совместно с Костей решили - что это уже overkill для текущей задачи</remarks>
     class UserRepositoryWithCopiesOfObjects
     {
         // Since requirements state that: 

@@ -4,6 +4,9 @@
 	using System.Collections.Generic;
 	using System.Linq;
 
+    /// <summary>
+    /// Вариант, который я отправила на собеседовании
+    /// </summary>
     public class UserRepository
 	{
         private Object m_Lock = new object();

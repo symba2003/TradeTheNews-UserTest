@@ -3,7 +3,7 @@
 // by multiple threads. 
 
 // The complete code is located in the ReaderWriterLock 
-// class topic. 
+// class topic on MSDN
 using System;
 using System.Threading;
 

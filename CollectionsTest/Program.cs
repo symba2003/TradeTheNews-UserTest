@@ -11,7 +11,17 @@ namespace CollectionsTest
     {
         // http://msdn.microsoft.com/en-us/vstudio/ee906600.aspx
         /**
-         * Writing a sample like this is tricky: I want to highlight the differences between these collection styles, but I don’t want to lead you to believe that the test code validates all assumptions in all cases. The sample shows the differences in the time cost of these two different types of collections, but that’s no excuse to argue dogmatically instead of measuring. It’s true that HashSet<T> will be faster than SortedSet<T> on Add and Search operations. It’s also true that SortedSet<T> will be faster when you need to enumerate the set in a sorted order. What must be measured is which collection would be better and faster in your application. In some cases, you may find that a design that combines both collection classes provides the needed performance. The only way to know that is to measure typical scenarios in your application using both collection types. The only technique I want you to recognize is universal is to enable changing the collection types in your application. By writing your code using interfaces, hopefully only on the particular functionality you need to create your application. You may even need to write some utility methods to enable cheaper tests instead of blindly performing unneeded work.
+         * Writing a sample like this is tricky: I want to highlight the differences between these collection styles, 
+         * but I don’t want to lead you to believe that the test code validates all assumptions in all cases.
+         * The sample shows the differences in the time cost of these two different types of collections, but that’s no excuse 
+         * to argue dogmatically instead of measuring. It’s true that HashSet<T> will be faster than SortedSet<T> on Add and
+         * Search operations. It’s also true that SortedSet<T> will be faster when you need to enumerate the set in a sorted order.
+         * What must be measured is which collection would be better and faster in your application. 
+         * In some cases, you may find that a design that combines both collection classes provides the needed performance. 
+         * The only way to know that is to measure typical scenarios in your application using both collection types. 
+         * The only technique I want you to recognize is universal is to enable changing the collection types in your application. 
+         * By writing your code using interfaces, hopefully only on the particular functionality you need to create your application. 
+         * You may even need to write some utility methods to enable cheaper tests instead of blindly performing unneeded work.
          * ***************/
         static void Main(string[] args)
         {

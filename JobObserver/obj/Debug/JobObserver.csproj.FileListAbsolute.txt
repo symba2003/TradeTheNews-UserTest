@@ -1,0 +1,5 @@
+H:\Desktop\Temp\Test\UserTest\JobObserver\bin\Debug\JobObserver.exe
+H:\Desktop\Temp\Test\UserTest\JobObserver\bin\Debug\JobObserver.pdb
+H:\Desktop\Temp\Test\UserTest\JobObserver\obj\Debug\JobObserver.exe
+H:\Desktop\Temp\Test\UserTest\JobObserver\obj\Debug\JobObserver.pdb
+H:\Desktop\Temp\Test\UserTest\JobObserver\obj\Debug\JobObserver.csprojResolveAssemblyReference.cache
