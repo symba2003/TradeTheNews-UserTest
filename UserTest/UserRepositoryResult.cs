@@ -11,14 +11,14 @@ namespace UserTest
     /// Класс-результат.
     /// </summary>
     /// <remarks> Предполагаем, что объекты User - immutable (неизменяемы, read-only)</remarks>
-    class UserRepositoryResult
+    class UserRepositoryResult : UserTest.IUserRepository
     {
         // главное помни, что thread-safe еще означает, что ты не будешь выставлять ссылки в public-интерфейс
         
         // коллекция для более быстрого доступа к объектам
         private ConcurrentDictionary<int, User> concurrentUsers = new ConcurrentDictionary<int, User>();
 
-        //кроллекция, хранящая сортированный массив объектов
+        //коллекция, хранящая сортированный массив объектов
         private SortedDictionary<int, User> sortedUsers = new SortedDictionary<int, User>();
         
         private Object synchronizer = new Object();

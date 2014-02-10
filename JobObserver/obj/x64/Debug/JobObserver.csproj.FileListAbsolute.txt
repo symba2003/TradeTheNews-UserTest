@@ -1,0 +1,5 @@
+H:\Desktop\Temp\Test\UserTest\JobObserver\bin\x64\Debug\JobObserver.exe
+H:\Desktop\Temp\Test\UserTest\JobObserver\bin\x64\Debug\JobObserver.pdb
+H:\Desktop\Temp\Test\UserTest\JobObserver\obj\x64\Debug\JobObserver.csprojResolveAssemblyReference.cache
+H:\Desktop\Temp\Test\UserTest\JobObserver\obj\x64\Debug\JobObserver.exe
+H:\Desktop\Temp\Test\UserTest\JobObserver\obj\x64\Debug\JobObserver.pdb

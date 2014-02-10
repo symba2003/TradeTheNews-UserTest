@@ -1,0 +1,6 @@
+H:\Desktop\Temp\Test\UserTest\CollectionsTest\bin\x64\Debug\CollectionsTest.exe.config
+H:\Desktop\Temp\Test\UserTest\CollectionsTest\bin\x64\Debug\CollectionsTest.exe
+H:\Desktop\Temp\Test\UserTest\CollectionsTest\bin\x64\Debug\CollectionsTest.pdb
+H:\Desktop\Temp\Test\UserTest\CollectionsTest\obj\x64\Debug\CollectionsTest.csprojResolveAssemblyReference.cache
+H:\Desktop\Temp\Test\UserTest\CollectionsTest\obj\x64\Debug\CollectionsTest.exe
+H:\Desktop\Temp\Test\UserTest\CollectionsTest\obj\x64\Debug\CollectionsTest.pdb

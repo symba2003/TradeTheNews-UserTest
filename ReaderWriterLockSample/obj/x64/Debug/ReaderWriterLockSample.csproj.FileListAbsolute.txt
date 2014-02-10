@@ -1,0 +1,5 @@
+H:\Desktop\Temp\Test\UserTest\ReaderWriterLockSample\bin\x64\Debug\ReaderWriterLockSample.exe
+H:\Desktop\Temp\Test\UserTest\ReaderWriterLockSample\bin\x64\Debug\ReaderWriterLockSample.pdb
+H:\Desktop\Temp\Test\UserTest\ReaderWriterLockSample\obj\x64\Debug\ReaderWriterLockSample.csprojResolveAssemblyReference.cache
+H:\Desktop\Temp\Test\UserTest\ReaderWriterLockSample\obj\x64\Debug\ReaderWriterLockSample.exe
+H:\Desktop\Temp\Test\UserTest\ReaderWriterLockSample\obj\x64\Debug\ReaderWriterLockSample.pdb

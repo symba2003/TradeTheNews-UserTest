@@ -31,7 +31,10 @@
            // TestUserRepositoryWithCopiesOfObjects();
 
             // итоговый результат
-            TestUserRepositoryResult();
+           // TestUserRepositoryResult();
+
+            // сравнение двух итоговых результатов
+            TestUserRepositoryResultVSUserRepositoryWithReaderWriterLock();
 
            
 
@@ -261,10 +264,6 @@
             Console.WriteLine("/****************************************************************************************/");
             Console.WriteLine("Test UserRepositoryResult");
 
-            
-
-
-           
             int numItemsToTest = 20000;
             int halfOfItems = numItemsToTest / 2;
 
@@ -286,65 +285,155 @@
                 timer.Stop();
                 Console.WriteLine(String.Format("Elapsed time: {0}", timer.Elapsed));
                 ////create different tasks
+
+
+                // 1. Fill in remaining collection with data in a separate thread
+                var fillTask = new Task(() =>
+                {
+                    var nextSequence = from n in Enumerable.Range(halfOfItems + 1, numItemsToTest)
+                                       select rnd.Next(numItemsToTest);
+                    foreach (var item in nextSequence)
+                        urr.AddUser(new User(item, String.Format("family_{0}", item), "name"));
+                });
+
+
+                // 2. get some User and print it
+                var getSomeUserTask = new Task(() =>
+                {
+                    var someUserSequence = from n in Enumerable.Range(1, numItemsToTest)
+                                           select rnd.Next(numItemsToTest);
+
+                    foreach (var item in someUserSequence)
+                    {
+                        User someUser = urr.GetUser(item);
+                        //if (someUser != null)
+                        //    Console.WriteLine("GET_USER: {0}", someUser.ToString());
+                    }
+                });
+
+                // 3. Get Ordered Users collection and print it
+                var printOrderedUsersTask = new Task(() =>
+                {
+                    timer.Start();
+                    //for (int j = 0; j < 100; j++)
+                    //{
+                    //    User[] orderedUsers = urr.GetOrderedUsers();
+                    //    Console.WriteLine("**************************************");
+                    //}
+                    timer.Stop();
+                    Console.WriteLine(String.Format("Elapsed time: {0}", timer.Elapsed));
+                });
+
+
+                // start all tasks
+                fillTask.Start();
+                getSomeUserTask.Start();
+                printOrderedUsersTask.Start();
+
+                // wait for all to complete.
+                Task.WaitAll(fillTask, getSomeUserTask, printOrderedUsersTask);
+
+                //print resulted array
+                User[] orderedUsers2 = urr.GetOrderedUsers();
+                Console.WriteLine("RESULT **************************************");
+                for (int counter = 0; counter < 5; counter++)
+                {
+                    Console.WriteLine(String.Format("ORDERED: {0}", orderedUsers2[counter].ToString()));
+                }
             }
+        }
 
-            //// 1. Fill in remaining collection with data in a separate thread
-            //var fillTask = new Task(() =>
-            //{
-            //     var nextSequence = from n in Enumerable.Range(1, numItemsToTest)
-            //                        select rnd.Next(numItemsToTest);
-            //        foreach (var item in nextSequence)
-            //            urr.AddUser(new User(item, String.Format("family_{0}", item) , "name"));
-            //});
+        static void TestUserRepositoryResultVSUserRepositoryWithReaderWriterLock() 
+        {
+            Console.WriteLine("/****************************************************************************************/");
+            Console.WriteLine("Test UserRepositoryResult vs UserRepositoryWithReaderWriterLock");
 
-
-            //// 2. get some User and print it
-            //var getSomeUserTask = new Task(() =>
-            //{
-            //    var someUserSequence = from n in Enumerable.Range(1, numItemsToTest)
-            //                           select rnd.Next(numItemsToTest);
-
-            //    foreach (var item in someUserSequence)
-            //    {
-            //        User someUser = urr.GetUser(item);
-            //        if(someUser != null)
-            //            Console.WriteLine("GET_USER: {0}", someUser.ToString());
-            //    }
-            //});
-
-            //// 3. Get Ordered Users collection and print it
-            //var printOrderedUsersTask = new Task(() =>
-            //{
-            //    for(int i = 0; i < numItemsToTest; i++)
-            //    {
-            //        User[] orderedUsers = urr.GetOrderedUsers();
-            //        Console.WriteLine("**************************************");
-            //        for(int counter = 0; counter < orderedUsers.Length; counter++)
-            //        {
-            //            Console.WriteLine(String.Format("ORDERED: {0}", orderedUsers[counter].ToString()));
-            //        }
-            //        Console.WriteLine("**************************************");
-            //    }
-            //});
-           
-       
-            //// start all tasks
-            //fillTask.Start();
-            //getSomeUserTask.Start();
-            //printOrderedUsersTask.Start();
-
-            //// wait for all to complete.
-            //Task.WaitAll(fillTask, getSomeUserTask, printOrderedUsersTask);
+            int numItemsToTest = 20000;
+         //   int halfOfItems = numItemsToTest / 2;
 
 
-            ////print resulted array
-            //User[] orderedUsers2 = urr.GetOrderedUsers();
-            //Console.WriteLine("RESULT **************************************");
-            //for (int counter = 0; counter < orderedUsers2.Length; counter++)
-            //{
-            //    Console.WriteLine(String.Format("ORDERED: {0}", orderedUsers2[counter].ToString()));
-            //}
+            Console.WriteLine("Test UserRepositoryResult..");
+            for (int i = 0; i < 10; i++)
+            {
+            // создаем репозиторий
+            UserRepositoryResult urr = new UserRepositoryResult();
+            TestUserRepository(urr, numItemsToTest);
+            }
+            Console.WriteLine("End of test");
 
+            Console.WriteLine("Test UserRepositoryWithReaderWriterLock..");
+            for (int i = 0; i < 10; i++)
+            {
+                // создаем репозиторий
+                UserRepositoryWithReaderWriterLock ur = new UserRepositoryWithReaderWriterLock();
+                TestUserRepository(ur, numItemsToTest);
+            }
+            Console.WriteLine("End of test");
+
+        }
+
+        static void TestUserRepository(IUserRepository ur, int numItemsToTest) 
+        {
+            Stopwatch timer = new Stopwatch();
+            
+            // pre-fill the half of the collection with test data
+            Random rnd = new Random();
+
+            ////create different tasks
+            // 1. Fill in remaining collection with data in a separate thread
+            var fillTask = new Task(() =>
+            {
+                timer.Start();
+                var nextSequence = from n in Enumerable.Range(1, numItemsToTest)
+                                    select rnd.Next(numItemsToTest);
+                foreach (var item in nextSequence)
+                    ur.AddUser(new User(item, String.Format("family_{0}", item), "name"));
+                timer.Stop();
+                Console.WriteLine(String.Format("fillTask Elapsed time: {0}", timer.Elapsed));
+            });
+
+
+            // 2. get some User and print it
+            var getSomeUserTask = new Task(() =>
+            {
+                var someUserSequence = from n in Enumerable.Range(1, numItemsToTest)
+                                        select rnd.Next(numItemsToTest);
+
+                foreach (var item in someUserSequence)
+                {
+                    User someUser = ur.GetUser(item);
+                    //if (someUser != null)
+                    //    Console.WriteLine("GET_USER: {0}", someUser.ToString());
+                }
+            });
+
+            // 3. Get Ordered Users collection and print it
+            var printOrderedUsersTask = new Task(() =>
+            {
+                Stopwatch timer2 = new Stopwatch();
+                timer2.Start();
+                for (int j = 0; j < numItemsToTest; j++)
+                {
+                    User[] orderedUsers = ur.GetOrderedUsers();
+                    //Console.WriteLine("**************************************");
+                    //for (int counter = 0; counter < 5; counter++)
+                    //{
+                    //    Console.WriteLine(String.Format("ORDERED: {0}", orderedUsers[counter].ToString()));
+                    //}
+                    //Console.WriteLine("**************************************");
+                }
+                timer2.Stop();
+                Console.WriteLine(String.Format("printOrderedUsersTask Elapsed time: {0}", timer2.Elapsed));
+            });
+
+
+            // start all tasks
+            fillTask.Start();
+            getSomeUserTask.Start();
+            printOrderedUsersTask.Start();
+
+            // wait for all to complete.
+            Task.WaitAll(fillTask, getSomeUserTask, printOrderedUsersTask);
         }
 		#endregion Methods
 	}

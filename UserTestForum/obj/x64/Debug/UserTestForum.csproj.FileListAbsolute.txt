@@ -1,0 +1,6 @@
+H:\Desktop\Temp\Test\UserTest\UserTestForum\bin\x64\Debug\UserTestForum.exe.config
+H:\Desktop\Temp\Test\UserTest\UserTestForum\bin\x64\Debug\UserTestForum.exe
+H:\Desktop\Temp\Test\UserTest\UserTestForum\bin\x64\Debug\UserTestForum.pdb
+H:\Desktop\Temp\Test\UserTest\UserTestForum\obj\x64\Debug\UserTestForum.csprojResolveAssemblyReference.cache
+H:\Desktop\Temp\Test\UserTest\UserTestForum\obj\x64\Debug\UserTestForum.exe
+H:\Desktop\Temp\Test\UserTest\UserTestForum\obj\x64\Debug\UserTestForum.pdb

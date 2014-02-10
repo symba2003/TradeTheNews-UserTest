@@ -22,6 +22,17 @@ namespace Eshva.Threading.Framework
     /// </remarks>
     public sealed class FixedThreadPool
     {
+        /* TODO: реализация FixedThreadPool в Java
+         volatile int runState;
+    static final int RUNNING    = 0;
+    static final int SHUTDOWN   = 1;
+    static final int STOP       = 2;
+    static final int TERMINATED = 3;
+    private final BlockingQueue<Runnable> workQueue;
+         
+         */
+
+
         #region Constructors
 
         /// <summary>
@@ -350,7 +361,8 @@ namespace Eshva.Threading.Framework
                             aEntry => aEntry.TaskPriority != TaskPriority.High) ||
                          Interlocked.CompareExchange(ref mQueuedHighPriorityTaskCounter, 0, 0) >=
                          HighPriorityTaskFactor))
-                    { // katrine: CHECK mQueuedHighPriorityTaskCounter vakues (0, 1, 2, 3, 4)..кажется, никогда не сбрасывается в 0:
+                    {
+                        // katrine: CHECK mQueuedHighPriorityTaskCounter vakues (0, 1, 2, 3, 4)..кажется, никогда не сбрасывается в 0:
                         // katrine:НЕТ, сбрасывается...в TaskThreadLogic (): Interlocked.Add( ref mQueuedHighPriorityTaskCounter, -HighPriorityTaskFactor);
                         //katrine:Debug.Assert(mQueuedHighPriorityTaskCounter > -1, "counter= " + mQueuedHighPriorityTaskCounter); 
                         // katrine:- INFO: после того, как остановим FixedThreadPool.stop() - будут выполняться задачи со статусом Normal 
