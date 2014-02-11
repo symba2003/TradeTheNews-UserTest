@@ -21,7 +21,12 @@ namespace UserTest
         //коллекция, хранящая сортированный массив объектов
         private SortedDictionary<int, User> sortedUsers = new SortedDictionary<int, User>();
         
-        private Object synchronizer = new Object();
+        // В книге Joseph Albahari "Threading in C#" (статья про lock) объект на который "вешается" lock
+        // объявлен с ключевым словом readonly
+        // В примере FixedThreadPool - тоже с ключевым словом readonly
+        // Хотя в примере из MSDN (статье про lock) объект, на который "вешается" lock объявлен так:
+        // private Object thisLock = new Object(); (то есть БЕЗ Readonly)
+        private readonly Object synchronizer = new Object();
 
         public User GetUser(int userId)
         {
